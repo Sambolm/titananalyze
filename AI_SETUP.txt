@@ -1,0 +1,26 @@
+TITAN ANALYZE V8 — AI ENDPOINT
+
+The iPhone app now automatically sends the recording to a private endpoint immediately after recording stops.
+
+Why a private endpoint is required:
+- GitHub Pages is static hosting and cannot securely hold an AI API key.
+- Putting a provider key in index.html would expose it to anyone who opens the app.
+- The endpoint should receive multipart/form-data with an "audio" file and return JSON matching AI_ENDPOINT_RESPONSE_EXAMPLE.json.
+
+Expected request fields:
+audio, interactionType, title, participants, purpose, location
+
+Recommended endpoint route:
+POST /api/analyze-audio
+
+The endpoint should:
+1. Transcribe the audio.
+2. Analyze transcript content and conversational signals.
+3. Return transcript, summary, tone, emotion, sentiment, keywords, decisions, commitments, risks, questions, recommendations, speaker insights, and notable quotes.
+
+IPHONE TESTING
+- Upload all PWA files to HTTPS hosting.
+- Open in Safari and Add to Home Screen.
+- In Settings, enter the complete HTTPS endpoint URL.
+- Grant microphone permission.
+- Record and tap stop. Processing begins immediately.

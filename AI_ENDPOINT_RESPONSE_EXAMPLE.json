@@ -1,0 +1,42 @@
+{
+  "transcript": "Full speaker-aware transcript",
+  "summary": "Executive summary",
+  "tone": "Tone analysis",
+  "emotion": "Emotion and interaction flow",
+  "communication": "Communication quality, listening, clarity, empathy, confidence, conflict management",
+  "sentiment": {
+    "label": "positive|neutral|mixed|negative",
+    "score": 0.0
+  },
+  "keywords": [
+    "keyword",
+    "theme"
+  ],
+  "positiveIndicators": [
+    "..."
+  ],
+  "decisions": [
+    "..."
+  ],
+  "commitments": [
+    "..."
+  ],
+  "concerns": [
+    "..."
+  ],
+  "questions": [
+    "..."
+  ],
+  "recommendations": [
+    "..."
+  ],
+  "speakerInsights": [
+    {
+      "speaker": "Speaker 1",
+      "analysis": "..."
+    }
+  ],
+  "notableQuotes": [
+    "..."
+  ]
+}
