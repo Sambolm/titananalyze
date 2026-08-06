@@ -307,6 +307,118 @@ input:focus,select:focus,textarea:focus{border-color:var(--cyan);box-shadow:0 0 
   .mouth{left:24px;top:25px}
 }
 </style>
+<style>
+.logo.robot-brand:before,.logo.robot-brand:after{display:none}
+.logo.robot-brand{padding:3px;overflow:hidden}
+.logo.robot-brand img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 6px rgba(64,244,255,.28))}
+
+.android-head{position:absolute}
+.android-head:before,.android-head:after{
+  content:"";position:absolute;z-index:4;top:45.5%;
+  width:17%;height:8%;border-radius:999px;
+  background:rgba(2,7,16,.96);
+  transform:scaleY(0);transform-origin:center;
+  animation:robotBlinkLid 5.4s infinite;
+  box-shadow:0 0 4px rgba(64,244,255,.12)
+}
+.android-head:before{left:24.5%}
+.android-head:after{right:24.5%}
+@keyframes robotBlinkLid{
+  0%,44%,48%,86%,90%,100%{transform:scaleY(0)}
+  45%,47%,87%,89%{transform:scaleY(1)}
+}
+.android-head img{
+  animation:robotGlow 3.2s ease-in-out infinite;
+}
+@keyframes robotGlow{
+  0%,100%{filter:brightness(1) saturate(1) drop-shadow(0 0 10px rgba(64,244,255,.15))}
+  50%{filter:brightness(1.08) saturate(1.12) drop-shadow(0 0 18px rgba(64,244,255,.26)) drop-shadow(0 0 10px rgba(255,79,216,.14))}
+}
+.android-head.recording:before,.android-head.recording:after{animation:none;transform:scaleY(0)}
+.android-head.recording img{
+  animation:recordingRobotGlow .85s ease-in-out infinite alternate;
+}
+@keyframes recordingRobotGlow{
+  from{filter:brightness(1.04) saturate(1.12) drop-shadow(0 0 13px rgba(64,244,255,.28))}
+  to{filter:brightness(1.17) saturate(1.3) drop-shadow(0 0 25px rgba(64,244,255,.45)) drop-shadow(0 0 14px rgba(255,79,216,.25))}
+}
+.home-live-timer{
+  position:absolute;left:50%;bottom:58px;transform:translateX(-50%);
+  min-width:104px;text-align:center;font-variant-numeric:tabular-nums;
+  font-size:18px;font-weight:900;letter-spacing:.08em;color:var(--cyan);
+  text-shadow:0 0 12px rgba(64,244,255,.3)
+}
+</style>
+<style>
+/* Titan Analyze V8 — iPhone layout corrections */
+html{-webkit-text-size-adjust:100%}
+body{overscroll-behavior:none}
+.app{width:100%;max-width:100%;overflow-x:hidden}
+main{width:100%;max-width:760px;padding:12px;padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}
+.panel,.card,.home-panel{width:100%;max-width:100%;min-width:0}
+input,select,textarea,button,audio{max-width:100%;min-width:0}
+.two,.grid,.types,.actions{min-width:0}
+.home-shell{min-height:calc(100dvh - 158px)}
+.home-panel{padding:22px 12px 18px;border-radius:22px}
+.home-stage{height:385px;overflow:visible}
+.home-record{left:56%;bottom:92px;width:172px;height:172px}
+.home-record .inner{width:102px;height:102px}
+.home-record-label{left:56%;width:200px;bottom:24px}
+.home-live-timer{left:56%;bottom:55px}
+.head-zone{left:6%;bottom:190px;width:116px;height:116px;z-index:4}
+.android-head{width:96px;height:96px}
+.status-chip{top:10px;right:10px}
+.recording-progress{
+  margin-top:14px;width:100%;padding:14px;border:1px solid rgba(64,244,255,.28);
+  border-radius:14px;background:rgba(64,244,255,.055);text-align:left
+}
+.progress-title{font-weight:900;color:var(--cyan);margin-bottom:8px}
+.progress-step{font-size:12px;color:var(--muted);padding:5px 0}
+.progress-step.active{color:var(--text)}
+.progress-step.done{color:var(--green)}
+.progress-step.error{color:var(--red)}
+.ai-config-note{
+  padding:12px;border:1px solid rgba(255,209,102,.3);border-radius:12px;
+  background:rgba(255,209,102,.06);color:#ffeab0;font-size:12px;line-height:1.45
+}
+.analysis-badge{
+  display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border-radius:999px;
+  border:1px solid rgba(64,244,255,.3);color:var(--cyan);font-size:10px;margin:4px 5px 4px 0
+}
+.keyword-cloud{display:flex;flex-wrap:wrap;gap:7px}
+.keyword-cloud span{padding:7px 9px;border-radius:10px;background:rgba(64,244,255,.08);border:1px solid rgba(64,244,255,.2);font-size:11px}
+@media(max-width:650px){
+  header{padding:10px 12px}
+  .brand{min-width:0}
+  .brand h1{font-size:15px}
+  .brand p{font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:185px}
+  .status{font-size:9px;padding:6px 7px;white-space:nowrap}
+  .logo{width:40px;height:40px;flex:0 0 40px}
+  main{padding-top:10px}
+  .two,.grid,.types,.actions{grid-template-columns:minmax(0,1fr)!important}
+  .panel{padding:14px;border-radius:16px}
+  .home-copy h2{font-size:24px}
+  .home-copy p{font-size:13px;padding:0 10px}
+  .home-stage{height:365px}
+  .home-record{left:59%;bottom:88px;width:154px;height:154px}
+  .home-record .inner{width:90px;height:90px;font-size:36px}
+  .home-record:after{top:15px;right:17px;font-size:9px}
+  .head-zone{left:2px;bottom:176px;width:102px;height:102px}
+  .android-head{width:84px;height:84px}
+  .home-live-timer{left:59%;bottom:52px;font-size:16px}
+  .home-record-label{left:59%;bottom:21px;font-size:10px;width:170px}
+  input,select,textarea{width:100%;font-size:16px;padding:11px}
+  textarea{min-height:130px}
+  .bottom-nav{grid-template-columns:repeat(4,minmax(0,1fr));padding-left:max(8px,env(safe-area-inset-left));padding-right:max(8px,env(safe-area-inset-right))}
+}
+@media(max-width:390px){
+  .home-record{left:61%;width:144px;height:144px}
+  .home-record .inner{width:84px;height:84px}
+  .head-zone{left:-4px;bottom:171px}
+  .android-head{width:78px;height:78px}
+  .home-live-timer,.home-record-label{left:61%}
+}
+</style>
 </head>
 <body>
 <div class="app">
@@ -315,7 +427,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--cyan);box-shadow:0 0 
     <div class="logo robot-brand" aria-label="Titan Analyze robot logo"><img src="titan-robot.png" alt=""></div>
     <div><h1>Titan Analyze</h1><p>Interaction Intelligence System</p></div>
   </div>
-  <div class="status">● LOCAL & SECURE</div>
+  <div class="status">● READY</div>
 </header>
 
 <main>
@@ -955,117 +1067,3 @@ if("serviceWorker" in navigator){
 </script>
 </body>
 </html>
-
-<style>
-.logo.robot-brand:before,.logo.robot-brand:after{display:none}
-.logo.robot-brand{padding:3px;overflow:hidden}
-.logo.robot-brand img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 6px rgba(64,244,255,.28))}
-
-.android-head{position:absolute}
-.android-head:before,.android-head:after{
-  content:"";position:absolute;z-index:4;top:45.5%;
-  width:17%;height:8%;border-radius:999px;
-  background:rgba(2,7,16,.96);
-  transform:scaleY(0);transform-origin:center;
-  animation:robotBlinkLid 5.4s infinite;
-  box-shadow:0 0 4px rgba(64,244,255,.12)
-}
-.android-head:before{left:24.5%}
-.android-head:after{right:24.5%}
-@keyframes robotBlinkLid{
-  0%,44%,48%,86%,90%,100%{transform:scaleY(0)}
-  45%,47%,87%,89%{transform:scaleY(1)}
-}
-.android-head img{
-  animation:robotGlow 3.2s ease-in-out infinite;
-}
-@keyframes robotGlow{
-  0%,100%{filter:brightness(1) saturate(1) drop-shadow(0 0 10px rgba(64,244,255,.15))}
-  50%{filter:brightness(1.08) saturate(1.12) drop-shadow(0 0 18px rgba(64,244,255,.26)) drop-shadow(0 0 10px rgba(255,79,216,.14))}
-}
-.android-head.recording:before,.android-head.recording:after{animation:none;transform:scaleY(0)}
-.android-head.recording img{
-  animation:recordingRobotGlow .85s ease-in-out infinite alternate;
-}
-@keyframes recordingRobotGlow{
-  from{filter:brightness(1.04) saturate(1.12) drop-shadow(0 0 13px rgba(64,244,255,.28))}
-  to{filter:brightness(1.17) saturate(1.3) drop-shadow(0 0 25px rgba(64,244,255,.45)) drop-shadow(0 0 14px rgba(255,79,216,.25))}
-}
-.home-live-timer{
-  position:absolute;left:50%;bottom:58px;transform:translateX(-50%);
-  min-width:104px;text-align:center;font-variant-numeric:tabular-nums;
-  font-size:18px;font-weight:900;letter-spacing:.08em;color:var(--cyan);
-  text-shadow:0 0 12px rgba(64,244,255,.3)
-}
-</style>
-
-<style>
-/* Titan Analyze V8 — iPhone layout corrections */
-html{-webkit-text-size-adjust:100%}
-body{overscroll-behavior:none}
-.app{width:100%;max-width:100%;overflow-x:hidden}
-main{width:100%;max-width:760px;padding:12px;padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}
-.panel,.card,.home-panel{width:100%;max-width:100%;min-width:0}
-input,select,textarea,button,audio{max-width:100%;min-width:0}
-.two,.grid,.types,.actions{min-width:0}
-.home-shell{min-height:calc(100dvh - 158px)}
-.home-panel{padding:22px 12px 18px;border-radius:22px}
-.home-stage{height:385px;overflow:visible}
-.home-record{left:56%;bottom:92px;width:172px;height:172px}
-.home-record .inner{width:102px;height:102px}
-.home-record-label{left:56%;width:200px;bottom:24px}
-.home-live-timer{left:56%;bottom:55px}
-.head-zone{left:6%;bottom:190px;width:116px;height:116px;z-index:4}
-.android-head{width:96px;height:96px}
-.status-chip{top:10px;right:10px}
-.recording-progress{
-  margin-top:14px;width:100%;padding:14px;border:1px solid rgba(64,244,255,.28);
-  border-radius:14px;background:rgba(64,244,255,.055);text-align:left
-}
-.progress-title{font-weight:900;color:var(--cyan);margin-bottom:8px}
-.progress-step{font-size:12px;color:var(--muted);padding:5px 0}
-.progress-step.active{color:var(--text)}
-.progress-step.done{color:var(--green)}
-.progress-step.error{color:var(--red)}
-.ai-config-note{
-  padding:12px;border:1px solid rgba(255,209,102,.3);border-radius:12px;
-  background:rgba(255,209,102,.06);color:#ffeab0;font-size:12px;line-height:1.45
-}
-.analysis-badge{
-  display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border-radius:999px;
-  border:1px solid rgba(64,244,255,.3);color:var(--cyan);font-size:10px;margin:4px 5px 4px 0
-}
-.keyword-cloud{display:flex;flex-wrap:wrap;gap:7px}
-.keyword-cloud span{padding:7px 9px;border-radius:10px;background:rgba(64,244,255,.08);border:1px solid rgba(64,244,255,.2);font-size:11px}
-@media(max-width:650px){
-  header{padding:10px 12px}
-  .brand{min-width:0}
-  .brand h1{font-size:15px}
-  .brand p{font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:185px}
-  .status{font-size:9px;padding:6px 7px;white-space:nowrap}
-  .logo{width:40px;height:40px;flex:0 0 40px}
-  main{padding-top:10px}
-  .two,.grid,.types,.actions{grid-template-columns:minmax(0,1fr)!important}
-  .panel{padding:14px;border-radius:16px}
-  .home-copy h2{font-size:24px}
-  .home-copy p{font-size:13px;padding:0 10px}
-  .home-stage{height:365px}
-  .home-record{left:59%;bottom:88px;width:154px;height:154px}
-  .home-record .inner{width:90px;height:90px;font-size:36px}
-  .home-record:after{top:15px;right:17px;font-size:9px}
-  .head-zone{left:2px;bottom:176px;width:102px;height:102px}
-  .android-head{width:84px;height:84px}
-  .home-live-timer{left:59%;bottom:52px;font-size:16px}
-  .home-record-label{left:59%;bottom:21px;font-size:10px;width:170px}
-  input,select,textarea{width:100%;font-size:16px;padding:11px}
-  textarea{min-height:130px}
-  .bottom-nav{grid-template-columns:repeat(4,minmax(0,1fr));padding-left:max(8px,env(safe-area-inset-left));padding-right:max(8px,env(safe-area-inset-right))}
-}
-@media(max-width:390px){
-  .home-record{left:61%;width:144px;height:144px}
-  .home-record .inner{width:84px;height:84px}
-  .head-zone{left:-4px;bottom:171px}
-  .android-head{width:78px;height:78px}
-  .home-live-timer,.home-record-label{left:61%}
-}
-</style>
